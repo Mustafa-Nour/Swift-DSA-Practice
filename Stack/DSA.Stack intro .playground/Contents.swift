@@ -23,6 +23,21 @@ public struct Stack<Element> {
       storage.popLast()
     }
     
+    public  func peek() -> Element? {
+        storage.last
+    }
+    
+    
+    public var isEmpty: Bool {
+        peek() == nil
+    }
+    
+    public var stackSize: Int {
+        storage.count
+    }
+    
+    
+    
     
 }
 
@@ -30,17 +45,47 @@ extension Stack: CustomDebugStringConvertible {
     public var debugDescription: String {
 """
  ----top----
- \(storage.map { "\($0)" }.reversed().joined(separator: "\n"))
+ \(storage.map { "\($0)" }.reversed().joined(separator: "|"))
  -----------
 """
     }
 }
+// MARK: - popular problems on stack (reverse an array using stack )
+
+let array: Array = [1,2,3,4,5]
+
+func reverseUsingStack (_ arrayTorevese  : Array<Any>) {
+    var reversedArray = Stack<Int>()
+    
+    for value in arrayTorevese {
+        reversedArray.push(value as! Int)
+    }
+    
+    print(reversedArray)
+}
+
+reverseUsingStack(array)
 
 
-var stack = Stack<Int> ()
-stack.push(1)
-stack.push(2)
-stack.push(3)
-stack.push(4)
+/// MARK: - Valid parantheses problem
 
-print(stack)
+
+var testString = "h(e))llo(world)()"
+func checkPrentheses(_ string: String) -> Bool {
+    var stack = Stack<Character>()
+    
+    for char in string {
+        if char == "(" {
+            stack.push(char)
+        } else if char == ")" {
+            if stack.isEmpty {
+                return false
+            } else {
+                 stack.pop()
+            }
+        }
+    }
+    return stack.isEmpty
+}
+
+checkPrentheses(testString)
