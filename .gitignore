@@ -1,0 +1,27 @@
+# =========================
+# macOS
+# =========================
+.DS_Store
+
+# =========================
+# Xcode
+# =========================
+DerivedData/
+.xcuserdata
+.xcworkspace
+.xcodeproj/project.xcworkspace
+.xcodeproj/xcuserdata
+
+# =========================
+# Swift Package Manager
+# =========================
+.build/
+.swiftpm/xcode/package.xcworkspace
+.swiftpm/config
+
+# =========================
+# Logs & temp
+# =========================
+*.log
+*.tmp
+
