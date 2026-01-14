@@ -1,6 +1,5 @@
 import UIKit
 import Foundation
-
 // first what is a stack ?
 // data structure which inforce the insertion and retriving data (which is push and pop operations )
 
@@ -54,11 +53,11 @@ extension Stack: CustomDebugStringConvertible {
 
 let array: Array = [1,2,3,4,5]
 
-func reverseUsingStack (_ arrayTorevese  : Array<Any>) {
-    var reversedArray = Stack<Int>()
+func reverseUsingStack<T> (_ arrayTorevese  : [T] ) {
+    var reversedArray = Stack<T>()
     
     for value in arrayTorevese {
-        reversedArray.push(value as! Int)
+        reversedArray.push(value )
     }
     
     print(reversedArray)
@@ -68,7 +67,6 @@ reverseUsingStack(array)
 
 
 /// MARK: - Valid parantheses problem
-
 
 var testString = "h(e))llo(world)()"
 func checkPrentheses(_ string: String) -> Bool {
@@ -89,3 +87,5 @@ func checkPrentheses(_ string: String) -> Bool {
 }
 
 checkPrentheses(testString)
+
+
