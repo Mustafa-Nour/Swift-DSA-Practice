@@ -84,6 +84,18 @@ public struct Linkedlist<Value> {
         return head?.value
     }
     
+    // MARK: -  remove after function
+    @discardableResult
+    public mutating func removeAfter(after node: Node<Value>) ->Value? {
+        do {
+            if node.next === tail {
+                tail = node
+            }
+            node.next = node.next?.next
+        }
+        return node.next?.value
+    }
+    
 }
 
 extension Linkedlist: CustomStringConvertible {
