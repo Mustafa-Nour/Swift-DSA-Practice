@@ -72,7 +72,18 @@ public struct Linkedlist<Value> {
         return currentNode
     }
     
-
+    // MARK: - pop func removing the head of the list
+    @discardableResult
+    public mutating func pop() -> Value? {
+        do {
+            head = head?.next
+            if isEmpty {
+                tail = nil
+            }
+        }
+        return head?.value
+    }
+    
 }
 
 extension Linkedlist: CustomStringConvertible {
@@ -90,5 +101,6 @@ linkedl.append(1)
 linkedl.append(2)
 linkedl.append(3)
 
+linkedl.pop()
 
 print(linkedl)
