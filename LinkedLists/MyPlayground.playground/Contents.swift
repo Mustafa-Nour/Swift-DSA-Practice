@@ -44,14 +44,14 @@ public struct Linkedlist<Value> {
         head == nil
     }
     
-    
+    // MARK: - Push to the linked list head like the head of a train.
     public mutating func push(_ value: Value){
         head = Node(value: value, next: head)
         if tail == nil {
             tail = head
         }
     }
-    
+    // MARK: -this func push the elements in the tail of the list
     public mutating func append(_ value: Value) {
         guard !isEmpty else {
            push(value)
@@ -60,7 +60,7 @@ public struct Linkedlist<Value> {
         tail!.next = Node(value: value)
         tail = tail!.next
     }
-    
+    // MARK: -  returns the node of the index given
     public mutating func node(at index: Int) -> Node<Value>? {
         var currentNode = head
         var curruntIndex = 0
@@ -69,9 +69,10 @@ public struct Linkedlist<Value> {
             currentNode = currentNode!.next
             curruntIndex += 1
         }
-        
         return currentNode
     }
+    
+
 }
 
 extension Linkedlist: CustomStringConvertible {
@@ -82,3 +83,12 @@ extension Linkedlist: CustomStringConvertible {
         return String(describing: head)
     }
 }
+
+var linkedl = Linkedlist<Int> ()
+
+linkedl.append(1)
+linkedl.append(2)
+linkedl.append(3)
+
+
+print(linkedl)
